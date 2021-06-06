@@ -241,6 +241,8 @@ typedef struct {
   // Legacy
   bool use_system_colours;
   bool old_bold;
+  // same option like in XTerm, use tilde code for F1-F4
+  bool old_function_keys; 
 } config;
 
 

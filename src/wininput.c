@@ -3125,14 +3125,14 @@ static struct {
       }
       if (term.vt220_keys && ctrl && VK_F3 <= key && key <= VK_F10)
         key += 10, mods &= ~MDK_CTRL;
-      if (key <= VK_F4)
+      if (key <= VK_F4 && !cfg.old_function_keys)
         mod_ss3(key - VK_F1 + 'P');
       else {
         tilde_code(
           (uchar[]){
-            15, 17, 18, 19, 20, 21, 23, 24, 25, 26,
+            11, 12, 13, 14, 15, 17, 18, 19, 20, 21, 23, 24, 25, 26,
             28, 29, 31, 32, 33, 34, 42, 43, 44, 45
-          }[key - VK_F5]
+          }[key - VK_F1]
         );
       }
     when VK_INSERT: edit_key(2, '0');
