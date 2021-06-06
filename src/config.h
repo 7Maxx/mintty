@@ -241,6 +241,7 @@ typedef struct {
   // Legacy
   bool use_system_colours;
   bool old_bold;
+  bool eight_bit_meta;
 } config;
 
 

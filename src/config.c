@@ -240,6 +240,7 @@ const config default_cfg = {
   .hover_title = true,
   .progress_bar = 0,
   .old_bold = false,
+  .eight_bit_meta = true,
   .ime_cursor_colour = DEFAULT_COLOUR,
   .ansi_colours = {
     [BLACK_I]        = RGB(0x00, 0x00, 0x00),
@@ -534,6 +535,7 @@ options[] = {
   {"IMECursorColour", OPT_COLOUR, offcfg(ime_cursor_colour)},
   {"SixelClipChars", OPT_WSTRING, offcfg(sixel_clip_char)},
   {"OldBold", OPT_BOOL, offcfg(old_bold)},
+  {"EightBitMeta", OPT_BOOL, offcfg(eight_bit_meta)},
   {"ShortLongOpts", OPT_BOOL, offcfg(short_long_opts)},
   {"BoldAsRainbowSparkles", OPT_BOOL, offcfg(bold_as_special)},
   {"HoverTitle", OPT_BOOL, offcfg(hover_title)},

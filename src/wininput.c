@@ -2747,7 +2747,12 @@ static struct {
     if (wlen < 0)  // Dead key.
       return true;
 
-    esc_if(alt);
+    if (cfg.eight_bit_meta && alt && wlen == 1 && wbuf[0] < 0x80) {
+      wbuf[0] |= 0x80; // meta as 8th bit
+    }
+    else {
+      esc_if(alt);
+    }
 
     // Substitute accent compositions not supported by Windows
     if (wlen == 2)
@@ -2928,6 +2933,11 @@ static struct {
   }
 
   void ctrl_ch(uchar c) {
+    if (cfg.eight_bit_meta && alt && c < 0x80) {
+      wchar wc = c | 0x80;
+      len += cs_wcntombn(buf + len, &wc, cs_cur_max, 1);
+      return;
+    }
     esc_if(alt);
     if (shift && !cfg.ctrl_exchange_shift) {
       // Send C1 control char if the charset supports it.
