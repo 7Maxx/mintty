@@ -243,6 +243,7 @@ typedef struct {
   bool old_bold;
   // same option like in XTerm, use tilde code for F1-F4
   bool old_function_keys; 
+  bool eight_bit_meta;
 } config;
 
 
